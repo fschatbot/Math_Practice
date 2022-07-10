@@ -1,0 +1,181 @@
+/* MENU */
+
+@font-face {
+    font-family: "Brutal";
+    src: url("asset/Brutal_font.ttf");
+}
+html{
+    min-height:100%;/* make sure it is at least as tall as the viewport */
+    position:relative;
+}
+body {
+	font-family: "Brutal";
+	height: 640px;
+	text-align: center;
+	background-color: rgb(245, 245, 245);
+	/* Sent a deault transition to everything */
+	-webkit-transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+	-o-transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+	transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+	/* Center all the divs in the middle of the page */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	resize: both;
+	overflow: auto;
+}
+
+.btn {
+	font-family: "Brutal";
+	font-weight: bolder;
+	appearance: none;
+	min-width: 300px;
+	padding: 5px 20px;
+	user-select: none;
+	text-align: center;
+	font-size: 2rem;
+	outline: none;
+	letter-spacing: 1px;
+	margin: 15px 0px;
+	transition: all 0.4s ease 0s;
+}
+
+.btn:hover {
+	cursor: pointer;
+}
+
+.btn:focus {
+	box-shadow: 0 0 3pt 2pt cornflowerblue;
+	border: 2px solid transparent;
+}
+
+.btn:active {
+	-webkit-transform: scale(0.9);
+		-ms-transform: scale(0.9);
+			transform: scale(0.9);
+	-webkit-box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+		box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+}
+
+.start {
+	border-radius: 10px;
+	border: 2px solid orange;
+	background: orange;
+	color: white;
+}
+
+.start:hover {
+	background: none;
+	color: orange;
+}
+
+.game-settings {
+	border-radius: 10px;
+	border: 2px solid lightblue;
+	background: lightblue;
+	color: white;
+}
+.game-settings:hover {
+	background: none;
+	color: lightblue;
+}
+
+.start[disabled] {
+	color: #d2d5db;
+	background: rgb(170, 111, 0);
+	cursor: not-allowed;
+}
+
+.hidden {
+	display: none;
+}
+
+.options {
+	transform: scale(0);
+	display: none;
+}
+.options.animate {
+	display: block;
+	animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+/* KEYFRAMES */
+@keyframes fadeIn {
+	0% {
+		transform: scale(0);
+	}
+	75% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+/* GAME */
+#puzzle {
+	font-size:300%;
+	margin: 10px;
+}
+
+#answer {
+	outline: none;
+	border-color:#cccccc; 
+	border-style:solid; 
+	padding:5px; 
+	font-size:20px; 
+	border-width:1px; 
+	border-radius:5px; 
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(42,42,42,.75); 
+		box-shadow: 0px 0px 5px 0px rgba(42,42,42,.75);
+	margin: 10px 0px;
+	text-align: center;
+}
+
+#answer:focus {
+	box-shadow: 0 0 3pt 2pt cornflowerblue;
+	border: 1px solid transparent;
+}
+
+
+#Submit_Puzzle {
+	margin:10px 0px;
+	position: relative;
+	padding: 16px 16px;
+	font-family: Roboto, sans-serif;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 1;
+	color: white;
+	/*color:#ece8e1;*/
+	background: #275efe;
+	border-radius: 24px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	-webkit-filter: drop-shadow(0 2px 8px rgba(39, 94, 254, 0.32));
+		filter: drop-shadow(0 2px 8px rgba(39, 94, 254, 0.32));
+	width:263px;
+	min-width: 200px;
+	border-radius: 10px;
+}
+
+/*This css is responsible for showing correct or incorrect animation on the button*/
+particle {
+	border-radius: 50%;
+	left: 0;
+	pointer-events: none;
+	position: fixed;
+	top: 0;
+	opacity: 0;
+}
+.fade_answer {
+	font-size: 200%;
+	left: 0;
+	top: 0;
+	position: fixed;
+	pointer-events: none;
+	opacity: 0;
+	color:#ff0081;
+}
